@@ -9,8 +9,8 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
   title: {
-    default: "CoinLookout",
-    template: "%s | CoinLookout",
+    default: "CoinLook",
+    template: "%s | CoinLook",
   },
   description: 'A modern cryptocurrency dashboard to track market trends.',
 };

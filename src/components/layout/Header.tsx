@@ -1,5 +1,4 @@
 'use client';
-
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Icons } from '@/components/icons';
@@ -10,7 +9,7 @@ export function Header() {
   const pathname = usePathname();
 
   const navItems = [
-    { href: '/', label: 'Markets' },
+    { href: '/', label: 'Market' },
     { href: '/watchlist', label: 'Watchlist' },
   ];
 
@@ -20,7 +19,7 @@ export function Header() {
         <div className="mr-4 flex items-center">
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <Icons.Logo className="h-6 w-6 text-primary" />
-            <span className="font-bold sm:inline-block">CoinLookout</span>
+            <span className="font-bold sm:inline-block">CoinLook</span>
           </Link>
           <nav className="flex items-center gap-2 text-sm">
             {navItems.map((item) => (

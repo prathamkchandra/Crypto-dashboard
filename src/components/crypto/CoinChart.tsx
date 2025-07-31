@@ -1,5 +1,4 @@
 'use client';
-
 import { useState, useEffect, useTransition } from 'react';
 import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis, CartesianGrid } from 'recharts';
 import { getMarketChart } from '@/lib/actions';
@@ -77,8 +76,7 @@ export function CoinChart({ coinId }: CoinChartProps) {
       <div className="flex justify-end mb-4">
         <ToggleGroup
           type="single"
-          defaultValue={days.toString()}
-          onValueChange={handleTimeRangeChange}
+          defaultValue={days.toString()} onValueChange={handleTimeRangeChange}
           aria-label="Chart time range"
           size="sm"
         >
