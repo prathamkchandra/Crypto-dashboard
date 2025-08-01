@@ -40,7 +40,7 @@
 
 ## 🧑‍💻 Tech Stack
 
--**FrameWork:** Next.js with turbo pack
+- **FrameWork:** Next.js with turbo pack
 - **Frontend:** React + TypeScript 
 - **State:** React Hooks + Context or Zustand (as needed)
 - **API:** coingecko 
