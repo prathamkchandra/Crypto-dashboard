@@ -9,8 +9,10 @@ const ToggleGroupContext = React.createContext<
   VariantProps<typeof toggleVariants> | null
 >(null)
 
-const ToggleGroup = React.forwardRef<ablemente, React.ElementRef<typeof ToggleGroupPrimitive.Root> &
-  React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Root>>(({ className, variant, size, children, ...props }, ref) => (
+const ToggleGroup = React.forwardRef<
+  React.ElementRef<typeof ToggleGroupPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Root> & VariantProps<typeof toggleVariants>
+>(({ className, variant, size, children, ...props }, ref) => (
   <ToggleGroupPrimitive.Root
     ref={ref}
     className={cn(

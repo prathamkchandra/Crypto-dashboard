@@ -10,11 +10,11 @@ import {
   TableRow,
   TableHead,
   TableCell,
-} from '@/components/ui/table';
-import { Button } from '@/components/ui/button';
-import { Skeleton } from '@/components/ui/skeleton';
-import { cn, formatCurrency, formatLargeNumber, formatPercentage } from '@/lib/utils';
-import type { CoinMarket } from '@/lib/types';
+} from '../ui/table';
+import { Button } from '../ui/button';
+import { Skeleton } from '../ui/skeleton';
+import { cn, formatCurrency, formatLargeNumber, formatPercentage } from '../../lib/utils';
+import type { CoinMarket } from '../../lib/types';
 
 interface CoinTableProps {
   coins: CoinMarket[];

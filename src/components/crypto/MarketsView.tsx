@@ -1,14 +1,14 @@
 'use client';
 
 import { useState, useEffect, useMemo, useTransition } from 'react';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
+import { Input } from '../ui/input';
+import { Button } from '../ui/button';
 import { CoinTable } from './CoinTable';
-import { useDebounce } from '@/hooks/use-debounce';
-import { useWatchlist } from '@/hooks/use-watchlist';
-import { getMarkets } from '@/lib/actions';
-import type { CoinMarket } from '@/lib/types';
-import { useToast } from '@/hooks/use-toast';
+import { useDebounce } from '../../hooks/use-debounce';
+import { useWatchlist } from '../../hooks/use-watchlist';
+import { getMarkets } from '../../lib/actions';
+import type { CoinMarket } from '../../lib/types';
+import { useToast } from '../../hooks/use-toast';
 import { Search } from 'lucide-react';
 
 interface MarketsViewProps {

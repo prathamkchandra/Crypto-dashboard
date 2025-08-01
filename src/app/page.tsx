@@ -1,12 +1,18 @@
-import { getMarkets } from '@/lib/actions';
-import { MarketsView } from '@/components/crypto/MarketsView';
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { getMarkets } from '../lib/actions';
+import { MarketsView } from '../components/crypto/MarketsView';
+import { Alert, AlertDescription, AlertTitle } from "../components/ui/alert";
 import { AlertTriangle } from 'lucide-react';
 import type { Metadata } from 'next';
+// import { Icons } from '@/components/icons';
+// If your icons file is at 'components/icons.tsx', use the following import:
+import { Icons } from '../components/icons';
+import { CircleDollarSign, type LucideProps } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: 'Markets',
+  title: 'CoinLook',
+  icons: '/assets/Dollar1.png',
 };
+
 
 export default async function HomePage() {
   const initialData = await getMarkets(1);
