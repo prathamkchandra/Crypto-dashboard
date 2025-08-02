@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Icons } from '../icons';
-// Update the import path to the correct relative location, for example:
+
 import { cn } from '../../lib/utils';
 import { Button } from '../ui/button';
 

@@ -90,18 +90,6 @@ export function CoinDetailView({ coin }: CoinDetailViewProps) {
               </ul>
             </CardContent>
           </Card>
-          {coin.links.homepage[0] && (
-            <Card className="mt-6">
-              <CardHeader><CardTitle>Links</CardTitle></CardHeader>
-              <CardContent>
-                  <Button asChild variant="outline" className="w-full justify-start">
-                    <a href={coin.links.homepage[0]} target="_blank" rel="noopener noreferrer">
-                      <LinkIcon className="mr-2 h-4 w-4" /> Website <ExternalLink className="ml-auto h-4 w-4 text-muted-foreground" />
-                    </a>
-                  </Button>
-              </CardContent>
-            </Card>
-          )}
         </div>
       </div>
     </div>
