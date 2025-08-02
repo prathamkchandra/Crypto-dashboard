@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Star, ChevronDown, ChevronUp } from 'lucide-react';
 import {
   Table,
@@ -10,11 +10,11 @@ import {
   TableRow,
   TableHead,
   TableCell,
-} from '../ui/table';
-import { Button } from '../ui/button';
-import { Skeleton } from '../ui/skeleton';
-import { cn, formatCurrency, formatLargeNumber, formatPercentage } from '../../lib/utils';
-import type { CoinMarket } from '../../lib/types';
+} from '@/components/ui/table';
+import { Button } from '@/components/ui/button';
+import { Skeleton } from '@/components/ui/skeleton';
+import { cn, formatCurrency, formatLargeNumber, formatPercentage } from '@/lib/utils';
+import type { CoinMarket } from '@/lib/types';
 
 interface CoinTableProps {
   coins: CoinMarket[];
@@ -24,6 +24,11 @@ interface CoinTableProps {
 }
 
 export function CoinTable({ coins, isLoading, watchlist, onToggleWatchlist }: CoinTableProps) {
+  const router = useRouter();
+
+  const handleRowClick = (coinId: string) => {
+    router.push(`/coin/${coinId}`);
+  };
   
   const renderPriceChange = (priceChange: number) => {
     const isNegative = priceChange < 0;
@@ -75,8 +80,8 @@ export function CoinTable({ coins, isLoading, watchlist, onToggleWatchlist }: Co
             Array.from({ length: 10 }).map((_, i) => <SkeletonRow key={i} />)
           ) : coins.length > 0 ? (
             coins.map((coin) => (
-              <TableRow key={coin.id}>
-                <TableCell>
+              <TableRow key={coin.id} onClick={() => handleRowClick(coin.id)} className="cursor-pointer">
+                <TableCell onClick={(e) => e.stopPropagation()}>
                   <Button
                     variant="ghost"
                     size="icon"
@@ -95,15 +100,13 @@ export function CoinTable({ coins, isLoading, watchlist, onToggleWatchlist }: Co
                 </TableCell>
                 <TableCell className="text-muted-foreground">{coin.market_cap_rank}</TableCell>
                 <TableCell className="font-medium">
-                  <Link href={`/coin/${coin.id}`} className="hover:underline">
-                    <div className="flex item-center gap-3">
+                    <div className="flex items-center gap-3">
                       <Image src={coin.image} alt={coin.name} width={32} height={32} className="rounded-full" data-ai-hint="coin icon" />
                       <div className="flex flex-col">
                         <span>{coin.name}</span>
                         <span className="text-muted-foreground text-xs uppercase">{coin.symbol}</span>
                       </div>
                     </div>
-                  </Link>
                 </TableCell>
                 <TableCell>{formatCurrency(coin.current_price)}</TableCell>
                 <TableCell className="hidden sm:table-cell">
